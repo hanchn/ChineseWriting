@@ -107,9 +107,15 @@ app.get('/api/words', async (req, res) => {
         const content = await fs.readFile(fullPath, 'utf-8');
         const json = JSON.parse(content);
         
-        if (json.words && Array.isArray(json.words)) {
-           // Map JSON words to our internal format (ensure backward compat if needed)
-           const mappedWords = json.words.map(w => ({
+        let wordsList = [];
+        if (Array.isArray(json)) {
+          wordsList = json;
+        } else if (json.words && Array.isArray(json.words)) {
+          wordsList = json.words;
+        }
+
+        if (wordsList.length > 0) {
+           const mappedWords = wordsList.map(w => ({
              ...w,
              source: book ? (file ? file : `${book}/${f}`) : f
            }));

@@ -147,8 +147,17 @@ const showStrokeOrder = () => {
         charContainer.style.width = '200px';
         charContainer.style.height = '200px';
         charContainer.style.backgroundColor = 'white';
-        charContainer.style.borderRadius = '12px';
-        charContainer.style.border = '1px solid #e5e7eb';
+        charContainer.style.position = 'relative';
+        
+        // Mi Zi Ge Style (米字格)
+        charContainer.style.border = '2px solid #374151'; // gray-700
+        charContainer.style.backgroundImage = `
+          linear-gradient(to right, transparent 49%, #9ca3af 49%, #9ca3af 51%, transparent 51%),
+          linear-gradient(to bottom, transparent 49%, #9ca3af 49%, #9ca3af 51%, transparent 51%),
+          linear-gradient(45deg, transparent 49.5%, #9ca3af 49.5%, #9ca3af 50.5%, transparent 50.5%),
+          linear-gradient(-45deg, transparent 49.5%, #9ca3af 49.5%, #9ca3af 50.5%, transparent 50.5%)
+        `;
+        
         // Add margin if there are multiple characters
         if (chars.length > 1) {
           charContainer.style.margin = '0 5px';
