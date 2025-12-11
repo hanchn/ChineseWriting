@@ -1,12 +1,14 @@
 <script setup>
 import { ref } from 'vue';
-import { BookOpen, PenTool, Table, Music, Book } from 'lucide-vue-next';
+import { BookOpen, PenTool, Table, Music, Book, Feather, Scroll } from 'lucide-vue-next';
 import HanziGame from './components/HanziGame.vue';
 import SentenceGame from './components/SentenceGame.vue';
 import PinyinGame from './components/PinyinGame.vue';
 import IdiomGame from './components/IdiomGame.vue';
+import PoetryGame from './components/PoetryGame.vue';
+import ClassicalGame from './components/ClassicalGame.vue';
 
-const currentApp = ref('home'); // home, hanzi, sentences, pinyin, idioms
+const currentApp = ref('home'); // home, hanzi, sentences, pinyin, idioms, poetry, classical
 </script>
 
 <template>
@@ -15,6 +17,8 @@ const currentApp = ref('home'); // home, hanzi, sentences, pinyin, idioms
     <SentenceGame v-else-if="currentApp === 'sentences'" @back="currentApp = 'home'" />
     <PinyinGame v-else-if="currentApp === 'pinyin'" @back="currentApp = 'home'" />
     <IdiomGame v-else-if="currentApp === 'idioms'" @back="currentApp = 'home'" />
+    <PoetryGame v-else-if="currentApp === 'poetry'" @back="currentApp = 'home'" />
+    <ClassicalGame v-else-if="currentApp === 'classical'" @back="currentApp = 'home'" />
 
     <div v-else class="max-w-6xl mx-auto p-8">
       <header class="text-center mb-16 pt-8">
@@ -76,6 +80,30 @@ const currentApp = ref('home'); // home, hanzi, sentences, pinyin, idioms
           </div>
           <h3 class="text-2xl font-bold text-gray-800 mb-2">成语故事</h3>
           <p class="text-gray-500">通过成语故事学习中国文化</p>
+        </div>
+
+        <!-- Entry Point 5: Ancient Poetry -->
+        <div 
+          @click="currentApp = 'poetry'"
+          class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all cursor-pointer border-2 border-transparent hover:border-rose-500 group"
+        >
+          <div class="w-16 h-16 bg-rose-100 rounded-2xl flex items-center justify-center text-rose-600 mb-6 group-hover:scale-110 transition-transform">
+            <Feather :size="32" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">古诗欣赏</h3>
+          <p class="text-gray-500">品味唐诗宋词的韵律之美</p>
+        </div>
+
+        <!-- Entry Point 6: Classical Prose -->
+        <div 
+          @click="currentApp = 'classical'"
+          class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all cursor-pointer border-2 border-transparent hover:border-stone-500 group"
+        >
+          <div class="w-16 h-16 bg-stone-100 rounded-2xl flex items-center justify-center text-stone-600 mb-6 group-hover:scale-110 transition-transform">
+            <Scroll :size="32" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">古文阅读</h3>
+          <p class="text-gray-500">学习经典文言文与寓言故事</p>
         </div>
       </div>
     </div>
