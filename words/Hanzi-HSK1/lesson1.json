@@ -1,0 +1,14 @@
+{
+  "words": [
+    { "word": "一", "definition": "yī - One" },
+    { "word": "二", "definition": "èr - Two" },
+    { "word": "三", "definition": "sān - Three" },
+    { "word": "你好", "definition": "nǐ hǎo - Hello" },
+    { "word": "谢谢", "definition": "xiè xie - Thank you" },
+    { "word": "再见", "definition": "zài jiàn - Goodbye" },
+    { "word": "中国", "definition": "zhōng guó - China" },
+    { "word": "美国", "definition": "měi guó - USA" },
+    { "word": "人", "definition": "rén - Person" },
+    { "word": "爱", "definition": "ài - Love" }
+  ]
+}
